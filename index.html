@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="S.A.L.E.M. — Synthetic Adaptive Logic & Execution Matrix. A local-first personal AI command center." />
+  <meta name="theme-color" content="#030507" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="S.A.L.E.M." />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="manifest" href="manifest.webmanifest?v=1.4.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png" />
+  <link rel="apple-touch-startup-image" href="splash.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <link rel="stylesheet" href="styles.css?v=1.4.0" />
+  <title>S.A.L.E.M.</title>
+</head>
+<body>
+  <div id="boot" class="boot-screen" aria-hidden="true">
+    <div class="core core--boot" aria-hidden="true">
+      <span class="core__halo"></span>
+      <span class="core__center"></span>
+      <span class="core__ring core__ring--1"></span>
+      <span class="core__ring core__ring--2"></span>
+      <span class="core__ring core__ring--3"></span>
+      <span class="core__ring core__ring--4"></span>
+      <span class="core__node node-a"></span>
+      <span class="core__node node-b"></span>
+    </div>
+    <div class="boot-title">S.A.L.E.M.</div>
+    <div class="boot-subtitle">Synthetic Adaptive Logic &amp; Execution Matrix</div>
+    <div class="boot-status">INITIALIZING LOCAL SYSTEMS</div>
+  </div>
+
+  <div class="ambient ambient--one"></div>
+  <div class="ambient ambient--two"></div>
+
+  <div class="app-shell" id="appShell">
+    <header class="app-header">
+      <div class="topbar">
+        <div class="brand-lockup">
+          <div class="mini-core" aria-hidden="true"><span></span><i></i><b></b></div>
+          <div>
+            <h1>S.A.L.E.M.</h1>
+            <p>SYNTHETIC ADAPTIVE LOGIC &amp; EXECUTION MATRIX</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙︎</button>
+        </div>
+      </div>
+
+      <section class="hero-core-wrap">
+        <div class="hero-core" id="heroCore" data-state="idle" aria-label="S.A.L.E.M. core status">
+          <span class="hero-core__halo"></span>
+          <span class="hero-core__orbit orbit-outer"></span>
+          <span class="hero-core__ring ring-a"></span>
+          <span class="hero-core__ring ring-b"></span>
+          <span class="hero-core__ring ring-c"></span>
+          <span class="hero-core__ring ring-d"></span>
+          <span class="hero-core__arc arc-a"></span>
+          <span class="hero-core__arc arc-b"></span>
+          <span class="hero-core__center"></span>
+          <span class="hero-core__spark spark-a"></span>
+          <span class="hero-core__spark spark-b"></span>
+          <span class="hero-core__spark spark-c"></span>
+        </div>
+        <div class="hero-copy">
+          <div class="eyebrow" id="salStateText">ONLINE • ALL SYSTEMS NOMINAL</div>
+          <div class="greeting" id="greetingText">Good evening, Marcus.</div>
+          <p class="hero-line" id="heroLine">Everything’s under control.</p>
+        </div>
+      </section>
+
+      <div class="command-glance" aria-label="Command summary">
+        <button data-action="money-check"><span>SAVINGS GAP</span><b id="glanceSavings">$1,200</b></button>
+        <button data-action="plan-day"><span>NEXT SHIFT</span><b id="glanceShift">12–8</b></button>
+        <button data-open-module="reminders"><span>OPEN ITEMS</span><b id="glanceReminders">2</b></button>
+      </div>
+
+      <div class="quick-strip">
+        <button class="chip chip--active" data-action="sal-status">SAL STATUS</button>
+        <button class="chip" data-action="plan-day">PLAN MY DAY</button>
+        <button class="chip" data-action="money-check">MONEY CHECK</button>
+        <button class="chip" data-action="voice">VOICE MODE</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="view view--active" id="homeView" data-view="home">
+        <section class="panel chat-panel">
+          <div class="panel__head">
+            <div>
+              <div class="panel__kicker">CONVERSATION</div>
+              <h2>S.A.L.E.M.</h2>
+            </div>
+            <button class="text-btn" id="clearChatBtn">Clear</button>
+          </div>
+
+          <div class="chat-log" id="chatLog" aria-live="polite"></div>
+
+          <div class="suggestions" id="suggestions">
+            <button data-prompt="SAL status">SAL Status</button>
+            <button data-prompt="What should I do tonight?">What should I do tonight?</button>
+            <button data-prompt="How much do I have saved?">Check my savings</button>
+            <button data-prompt="What is my next workout?">Next workout</button>
+            <button data-prompt="Search Google for Marvel news today">Search Google</button>
+          </div>
+
+          <form class="composer" id="chatForm">
+            <button type="button" class="composer__mic" id="micBtn" aria-label="Voice input"><span>⌁</span></button>
+            <input id="chatInput" autocomplete="off" enterkeyhint="send" placeholder="Ask S.A.L.E.M. anything…" />
+            <button type="submit" class="composer__send" aria-label="Send">➤</button>
+          </form>
+        </section>
+
+        <section class="grid two-col">
+          <article class="panel finance-card">
+            <div class="panel__head compact">
+              <div>
+                <div class="panel__kicker">FINANCIAL STATUS</div>
+                <h3>Money</h3>
+              </div>
+              <span class="status-dot warn" id="financeStatusDot"></span>
+            </div>
+            <div class="metric big"><span>Savings</span><strong id="savingsMetric">$300</strong></div>
+            <div class="progress"><i id="savingsProgress"></i></div>
+            <div class="metric small"><span>Floor</span><strong id="savingsFloorMetric">$1,500</strong></div>
+            <div class="metric small"><span>Credit Used</span><strong id="creditMetric">$8,000 / $10,000</strong></div>
+            <div class="priority-line"><span>Priority</span><b id="priorityMetric">Insurance — $322</b></div>
+            <button class="panel-link" data-open-module="finance">Open Finance →</button>
+          </article>
+
+          <article class="panel today-card">
+            <div class="panel__head compact">
+              <div>
+                <div class="panel__kicker">TODAY</div>
+                <h3 id="todayDate">Tuesday</h3>
+              </div>
+              <span class="status-dot"></span>
+            </div>
+            <div class="timeline" id="todayTimeline"></div>
+            <button class="panel-link" data-action="plan-day">Plan My Day →</button>
+          </article>
+        </section>
+
+        <section class="panel status-card">
+          <div class="panel__head compact">
+            <div>
+              <div class="panel__kicker">SYSTEM STATUS</div>
+              <h3>Local systems</h3>
+            </div>
+            <span class="status-pill" id="networkStatus">ONLINE</span>
+          </div>
+          <div class="status-grid">
+            <div><span>S.A.L.E.M.</span><b>ONLINE</b></div>
+            <div><span>Local Database</span><b id="dbStatus">READY</b></div>
+            <div><span>AI</span><b id="aiStatus">LOCAL MODE</b></div>
+            <div><span>Internet Search</span><b id="searchStatus">GOOGLE READY</b></div>
+            <div><span>Offline App</span><b id="pwaStatus">READY</b></div>
+            <div><span>Voice</span><b id="voiceStatus">READY</b></div>
+          </div>
+        </section>
+
+        <section class="panel projects-panel">
+          <div class="panel__head compact">
+            <div>
+              <div class="panel__kicker">ACTIVE PROJECTS</div>
+              <h3>Current systems</h3>
+            </div>
+          </div>
+          <div class="project-cards">
+            <button class="project-card" data-open-module="work"><span>HARRY &amp; SONS</span><b>Work + social</b><i>01</i></button>
+            <button class="project-card" data-open-module="999salem"><span>999SALEM</span><b>Minecraft + content</b><i>02</i></button>
+            <button class="project-card" data-open-module="barber"><span>MARCUS X BARBER</span><b>Personal brand</b><i>03</i></button>
+            <button class="project-card" data-open-module="fitness"><span>TRAINING</span><b>Calisthenics</b><i>04</i></button>
+            <button class="project-card" data-open-module="marvel"><span>MARVEL DATABASE</span><b>Reading + theories</b><i>05</i></button>
+            <button class="project-card" data-open-module="people"><span>PEOPLE</span><b>Follow-ups</b><i>06</i></button>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="chatView" data-view="chat">
+        <section class="panel chat-panel chat-panel--full">
+          <div class="panel__head"><div><div class="panel__kicker">FULL SESSION</div><h2>S.A.L.E.M. Chat</h2></div><span class="status-pill">SECURE LOCAL CONTEXT</span></div>
+          <div class="chat-log chat-log--full" id="chatLogFull"></div>
+          <form class="composer" id="chatFormFull">
+            <button type="button" class="composer__mic" id="micBtnFull" aria-label="Voice input"><span>⌁</span></button>
+            <input id="chatInputFull" autocomplete="off" enterkeyhint="send" placeholder="Ask S.A.L.E.M. anything…" />
+            <button type="submit" class="composer__send" aria-label="Send">➤</button>
+          </form>
+        </section>
+      </section>
+
+      <section class="view" id="modulesView" data-view="modules">
+        <div class="section-title"><div class="panel__kicker">MODULES</div><h2>Life systems</h2><p>Everything S.A.L.E.M. tracks locally.</p></div>
+        <div class="module-list" id="moduleList"></div>
+      </section>
+
+      <section class="view" id="insightsView" data-view="insights">
+        <div class="section-title"><div class="panel__kicker">INSIGHTS</div><h2>Patterns S.A.L.E.M. notices</h2><p>Useful signals from your stored data.</p></div>
+        <div class="grid one-col" id="insightsList"></div>
+      </section>
+
+      <section class="view" id="profileView" data-view="profile">
+        <div class="section-title"><div class="panel__kicker">PROFILE</div><h2>System configuration</h2><p>AI connection, identity and local data.</p></div>
+
+        <section class="panel form-panel">
+          <div class="panel__head compact no-pad"><div><div class="panel__kicker">LIVE CONNECTION</div><h3>Cloudflare relay</h3></div></div>
+          <label>Worker URL<input id="backendUrlInput" inputmode="url" autocapitalize="none" placeholder="https://salem-live.YOURNAME.workers.dev" /></label>
+          <label>Your name<input id="userNameInput" value="Marcus" /></label>
+          <div class="form-row">
+            <button class="btn" id="saveSettingsBtn">Save Settings</button>
+            <button class="btn btn--ghost" id="exportBtn">Export S.A.L.E.M.</button>
+          </div>
+          <label class="import-label">Import S.A.L.E.M. backup<input type="file" id="importInput" accept="application/json" /></label>
+          <p class="muted">Paste your Cloudflare Worker URL here. No API key is needed for the built-in live news relay, so questions like “What’s the latest Marvel news?” can answer inside S.A.L.E.M. Export creates a backup of your local data; Choose File restores one.</p>
+        </section>
+      </section>
+
+      <section class="view module-detail" id="moduleDetailView" data-view="module-detail">
+        <button class="back-btn" id="backToModules">← Modules</button>
+        <div id="moduleDetail"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Primary">
+      <button class="nav-btn active" data-nav="home"><span>⌂</span>Home</button>
+      <button class="nav-btn" data-nav="chat"><span>◌</span>Chat</button>
+      <button class="nav-btn" data-nav="modules"><span>▦</span>Modules</button>
+      <button class="nav-btn" data-nav="insights"><span>⌁</span>Insights</button>
+      <button class="nav-btn" data-nav="profile"><span>◎</span>Profile</button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Boot-screen failsafe: the interface must never be trapped behind the logo,
+    // even if a cached script, local database, or network request fails.
+    (() => {
+      const releaseBoot = () => document.getElementById('boot')?.classList.add('hidden');
+      window.setTimeout(releaseBoot, 1400);
+      window.addEventListener('load', () => window.setTimeout(releaseBoot, 900), { once: true });
+      window.addEventListener('error', () => window.setTimeout(releaseBoot, 150), { once: true });
+      window.addEventListener('unhandledrejection', () => window.setTimeout(releaseBoot, 150), { once: true });
+    })();
+  </script>
+  <script src="db.js?v=1.4.0"></script>
+  <script src="app.js?v=1.4.0"></script>
+</body>
+</html>
